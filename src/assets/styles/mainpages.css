@@ -1,0 +1,279 @@
+/* animasi mainpages */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: calc(var(--item-index, 0) * 0.2s);
+}
+
+
+/* mengatur layout website */
+main {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  main h1 {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  main p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555;
+    text-align: center;
+  }
+  
+  main a {
+    text-decoration: none;
+    color: #0070f3;
+    font-weight: bold;
+  }
+  
+  main a:hover {
+    color: #0056b3;
+  }
+  
+  nav {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #0070f3;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  nav ul li a:hover {
+    color: #0056b3;
+  }
+  
+/* Reset default margin dan padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #111827;
+}
+
+/* Hapus styling main yang membuat kotak */
+main {
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Animasi */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: calc(var(--item-index, 0) * 0.2s);
+}
+
+/* Mengatur layout website */
+nav {
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #0070f3;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+nav ul li a:hover {
+  color: #0056b3;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1400px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 720px;
+  }
+  
+  .hero-section {
+    padding: 3rem 1.5rem;
+  }
+  
+  .title-top {
+    font-size: 2.2rem;
+  }
+  
+  .title-bottom {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 540px;
+    padding: 0 1rem;
+  }
+  
+  .weather-widget {
+    position: static;
+    margin: 1rem auto;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .features-grid,
+  .services-list,
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .vision-mission {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+  
+  .title-top {
+    font-size: 1.8rem;
+  }
+  
+  .title-bottom {
+    font-size: 2.2rem;
+  }
+  
+  .contact-card {
+    padding: 1.5rem;
+  }
+  
+  .contact-details p {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+  
+  .map-container iframe {
+    height: 300px;
+  }
+  
+  .membership-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Landscape mode untuk mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+  
+  .weather-widget {
+    position: static;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .map-container iframe {
+    filter: invert(90%) hue-rotate(180deg);
+  }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero-section h1,
+  .section-title {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Print styles */
+@media print {
+  .weather-widget,
+  .nav-menu,
+  .map-container {
+    display: none;
+  }
+}

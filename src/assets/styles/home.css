@@ -1,0 +1,243 @@
+/* Animasi */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: calc(var(--item-index, 0) * 0.2s);
+}
+
+/* Styling Home yang Baru */
+.home-container {
+  background-color: #111827;
+  color: #fff;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero-section h1 {
+  font-weight: 800;
+  background: linear-gradient(45deg, #3b82f6, #60a5fa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.title-top {
+  font-size: 2.5rem;
+}
+
+.title-bottom {
+  font-size: 3.2rem;
+}
+
+.tagline {
+  font-size: 1.5rem;
+  color: #fbbf24;
+  margin-bottom: 3rem;
+  font-weight: 500;
+}
+
+/* Features Section */
+.features-section {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.features-section h2 {
+  font-size: 2.5rem;
+  color: #3b82f6;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  padding: 2rem;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+}
+
+.feature-card h3 {
+  color: #fbbf24;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.feature-card p {
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+/* Services Preview */
+.services-preview {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.services-preview h2 {
+  font-size: 2.5rem;
+  color: #3b82f6;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.service-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  padding: 2rem;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+}
+
+.service-item h3 {
+  color: #fbbf24;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.service-item p {
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+  }
+
+  .features-section h2,
+  .services-preview h2 {
+    font-size: 2rem;
+  }
+
+  .feature-card,
+  .service-item {
+    padding: 1.5rem;
+  }
+
+  .title-top {
+    font-size: 1.8rem;
+  }
+
+  .title-bottom {
+    font-size: 2rem;
+  }
+}
+
+.weather-widget {
+  position: fixed;
+  top: 6rem;
+  right: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 12px;
+  padding: 1.2rem;
+  color: #e5e7eb;
+  transition: all 0.3s ease;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+
+.weather-widget:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(59, 130, 246, 0.2);
+}
+
+.weather-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.weather-info img {
+  width: 50px;
+  height: 50px;
+}
+
+.weather-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.temperature {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fbbf24;
+}
+
+.condition {
+  font-size: 0.9rem;
+  color: #e5e7eb;
+}
+
+.location {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+@media (max-width: 768px) {
+  .weather-widget {
+    position: static;
+    margin: 1rem auto 2rem;
+    width: 90%;
+    max-width: 300px;
+  }
+}
