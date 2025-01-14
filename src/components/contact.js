@@ -6,6 +6,7 @@ const Contact = () => {
   useScrollAnimation();
 
   return (
+    //alamat
     <div className="contact-container">
       <div className="contact-card scroll-fade-up">
         <h1>Hubungi Kami</h1>
@@ -31,7 +32,7 @@ const Contact = () => {
       <div className="map-container scroll-scale">
         <h2 className="map-title">Lokasi Kami</h2>
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3096.367373198618!2d106.65965566420552!3d-6.175858828402203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1736571596886!5m2!1sid!2sid"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2804.8400527075405!2d106.66298206489498!3d-6.178539994298831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f9c49a2ce295%3A0x4348de1c87fc482e!2sTaman%20Royal%203!5e0!3m2!1sid!2sid!4v1736824488754!5m2!1sid!2sid" 
           width="100%"
           height="450"
           style={{ 

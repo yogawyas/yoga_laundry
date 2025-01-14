@@ -50,7 +50,7 @@ const About = () => {
     },
     {
       id: 4,
-      name: "Reza Rizky Pratama",
+      name: "Reza Rizky Pratamassssssssss",
       role: "Senior Laundry Specialist",
       image: "/rezarizky.jpg",
       description: "Spesialis dalam perawatan pakaian premium."
