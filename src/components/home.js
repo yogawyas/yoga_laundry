@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "../assets/styles/home.css";
 
 const Home = () => {
+  const navigate = useNavigate();
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
   const [showReminder, setShowReminder] = useState(false);
@@ -120,15 +122,30 @@ const Home = () => {
       <section className="services-preview">
         <h2 data-animate>Layanan Kami</h2>
         <div className="services-list">
-          <div className="service-item" data-animate>
+          <div
+            className="service-item"
+            data-animate
+            onClick={() => navigate("/services")}
+            style={{ cursor: "pointer" }}
+          >
             <h3>Cuci Reguler</h3>
             <p>Layanan cuci standar dengan perawatan maksimal</p>
           </div>
-          <div className="service-item" data-animate>
+          <div
+            className="service-item"
+            data-animate
+            onClick={() => navigate("/services")}
+            style={{ cursor: "pointer" }}
+          >
             <h3>Cuci Express</h3>
             <p>Layanan cuci kilat untuk kebutuhan mendesak</p>
           </div>
-          <div className="service-item" data-animate>
+          <div
+            className="service-item"
+            data-animate
+            onClick={() => navigate("/services")}
+            style={{ cursor: "pointer" }}
+          >
             <h3>Dry Cleaning</h3>
             <p>Perawatan khusus untuk pakaian formal dan premium</p>
           </div>
