@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../assets/styles/about.css';
 
 const About = () => {
@@ -25,6 +25,8 @@ const About = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  const [showYogaProfile, setShowYogaProfile] = useState(false);
 
   const teamMembers = [
     {
@@ -127,7 +129,12 @@ const About = () => {
               className="team-card"
               data-animate
             >
-              <div className="team-image-container">
+              <div
+                className="team-image-container profile-image-container"
+                onClick={() => member.id === 1 && setShowYogaProfile(true)}
+                style={{ cursor: member.id === 1 ? "pointer" : "default" }}
+                title={member.id === 1 ? "Klik untuk lihat profil lengkap" : ""}
+              >
                 <img src={member.image} alt={member.name} className="team-image" />
               </div>
               <div className="team-info">
@@ -139,6 +146,71 @@ const About = () => {
           ))}
         </div>
       </section>
+
+      {/* Modal Profil Lengkap Yoga */}
+      {showYogaProfile && (
+        <div className="profile-modal-overlay" onClick={() => setShowYogaProfile(false)}>
+          <div
+            className="profile-modal-content animate-modal"
+            onClick={e => e.stopPropagation()}
+          >
+            <button className="profile-modal-close" onClick={() => setShowYogaProfile(false)} title="Tutup">✕</button>
+            <div className="profile-modal-header">
+              <img src="/yogawyas.jpg" alt="Yoga Wyas Pramudita" className="profile-modal-photo" />
+              <div>
+                <h2>Yoga Wyas Pramudita</h2>
+                <h4>Founder & CEO</h4>
+              </div>
+            </div>
+            <div className="profile-modal-body">
+              <ul>
+                <li><b>Umur:</b> 21 tahun</li>
+                <li><b>Pengalaman Coding:</b> 7 tahun</li>
+                <li><b>Lulusan:</b> Oxford University</li>
+                <li><b>Menguasai Bahasa:</b></li>
+                <ul className="language-list">
+                  <li>
+                    <span title="C">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" className="lang-icon" />
+                      C
+                    </span>
+                  </li>
+                  <li>
+                    <span title="Java">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" className="lang-icon" />
+                      Java
+                    </span>
+                  </li>
+                  <li>
+                    <span title="PHP">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" className="lang-icon" />
+                      PHP
+                    </span>
+                  </li>
+                  <li>
+                    <span title="JavaScript">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" className="lang-icon" />
+                      JavaScript
+                    </span>
+                  </li>
+                  <li>
+                    <span title="React">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="lang-icon" />
+                      React
+                    </span>
+                  </li>
+                  <li>
+                    <span title="Python">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" className="lang-icon" />
+                      Python
+                    </span>
+                  </li>
+                </ul>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -18,7 +18,12 @@
 
 /* Styling Home yang Baru */
 .home-container {
-  background-color: #111827;
+  /* background-image: url("/backgroundMainpage.jpg");  */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #111827; /* fallback jika gambar gagal dimuat */
   color: #fff;
   min-height: 100vh;
   padding: 2rem;
