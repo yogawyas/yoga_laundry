@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import '../assets/styles/home.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "../assets/styles/home.css";
 
 const Home = () => {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [showReminder, setShowReminder] = useState(false);
+  const [membershipDays, setMembershipDays] = useState(12); // contoh data
+  const [discount, setDiscount] = useState(15); // contoh data
+  const [countdown, setCountdown] = useState(5025); // detik, contoh: 1 jam 23 menit 45 detik
+  const totalCountdown = 7200; // total detik layanan, misal 2 jam
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -15,7 +20,7 @@ const Home = () => {
         setWeather(response.data);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching weather:', error);
+        console.error("Error fetching weather:", error);
         setLoading(false);
       }
     };
@@ -26,27 +31,51 @@ const Home = () => {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: '0px',
-      threshold: 0.1
+      rootMargin: "0px",
+      threshold: 0.1,
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          entry.target.style.setProperty('--item-index', index);
-          entry.target.classList.add('animate-on-scroll');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            entry.target.style.setProperty("--item-index", index);
+            entry.target.classList.add("animate-on-scroll");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      observerOptions
+    );
 
     // Mengamati semua elemen yang perlu dianimasi
-    const animatedElements = document.querySelectorAll('[data-animate]');
-    animatedElements.forEach(el => observer.observe(el));
+    const animatedElements = document.querySelectorAll("[data-animate]");
+    animatedElements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
-  
+
+  useEffect(() => {
+    let seconds = countdown;
+    const interval = setInterval(() => {
+      if (seconds > 0) {
+        seconds--;
+        setCountdown(seconds);
+      }
+    }, 1000);
+    return () => clearInterval(interval);
+    // eslint-disable-next-line
+  }, []);
+
+  const formatTime = (sec) => {
+    const h = String(Math.floor(sec / 3600)).padStart(2, "0");
+    const m = String(Math.floor((sec % 3600) / 60)).padStart(2, "0");
+    const s = String(sec % 60).padStart(2, "0");
+    return `${h}:${m}:${s}`;
+  };
+
+  const progressPercent = Math.max(0, Math.round((countdown / totalCountdown) * 100));
+
   return (
     <div className="home-container">
       {weather && (
@@ -105,6 +134,48 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <div className="reminder-container">
+        <button
+          className="reminder-btn"
+          onClick={() => setShowReminder(!showReminder)}
+        >
+          Reminder
+        </button>
+        <div className={`reminder-dropdown${showReminder ? ' active' : ''}`}>
+          <div className="dropdown-title">🎉 Membership & Layanan Anda</div>
+          <div className="dropdown-item">
+            <span>🗓️ <b>{membershipDays} hari</b> sisa membership</span>
+            <div style={{ fontSize: "0.9rem", color: "#9ca3af" }}>
+              Nikmati layanan premium lebih lama!
+            </div>
+          </div>
+          <div className="dropdown-item">
+            <span>⏳ Countdown layanan:</span>
+            <div style={{ fontWeight: 600, color: "#fbbf24", fontSize: "1.2rem" }}>
+              {formatTime(countdown)}
+            </div>
+            <div className="progress-bar-bg">
+              <div
+                className="progress-bar-fg"
+                style={{
+                  width: `${progressPercent}%`,
+                  background: progressPercent > 50 ? "#3b82f6" : progressPercent > 20 ? "#fbbf24" : "#ef4444"
+                }}
+              ></div>
+            </div>
+            <div style={{ fontSize: "0.85rem", color: "#9ca3af" }}>
+              {progressPercent}% waktu layanan tersisa
+            </div>
+          </div>
+          <div className="dropdown-item">
+            <span>🎁 Diskon spesial untuk Anda: </span>
+            <span style={{ color: "#22d3ee", fontWeight: 700, fontSize: "1.1rem" }}>
+              {discount}%
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

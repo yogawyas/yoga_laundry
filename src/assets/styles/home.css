@@ -153,6 +153,100 @@
   line-height: 1.6;
 }
 
+/* Reminder Widget */
+.reminder-container {
+  position: fixed;
+  top: 6rem;
+  left: 2rem;
+  right: auto;
+  bottom: auto;
+  z-index: 200;
+}
+
+.reminder-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #fff;
+  color: #3b82f6;
+  border: none;
+  border-radius: 50px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.08);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.reminder-btn:hover,
+.reminder-btn:focus {
+  background: #3b82f6;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.15);
+}
+
+.reminder-btn .bell {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.reminder-dropdown {
+  margin-top: 0.5rem;
+  margin-left: 0;
+  margin-right: 8px;
+  background: #1e293b;
+  color: #fff;
+  border: 1px solid #3b82f6;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.12);
+  padding: 1.2rem 1.5rem;
+  min-width: 260px;
+  position: absolute;
+  left: 40px;
+  right: auto;
+  top: calc(100% + 8px);
+  display: none;
+  animation: fadeInUp 0.4s;
+}
+
+.reminder-dropdown.active {
+  display: block;
+}
+
+.reminder-dropdown .dropdown-title {
+  font-weight: 700;
+  color: #fbbf24;
+  margin-bottom: 0.7rem;
+  font-size: 1.1rem;
+}
+
+.reminder-dropdown .dropdown-item {
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+}
+
+.reminder-dropdown .dropdown-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Progress Bar Styles */
+.progress-bar-bg {
+  width: 100%;
+  height: 10px;
+  background: #374151;
+  border-radius: 6px;
+  margin: 0.5rem 0 0.2rem 0;
+  overflow: hidden;
+}
+.progress-bar-fg {
+  height: 100%;
+  transition: width 0.5s;
+  border-radius: 6px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero-section h1 {
@@ -179,6 +273,27 @@
 
   .title-bottom {
     font-size: 2rem;
+  }
+
+  .reminder-container {
+    position: static;
+    margin: 1rem auto 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .reminder-dropdown {
+    right: 0;
+    left: auto;
+    top: calc(100% + 8px);
+    bottom: auto;
+  }
+
+  .weather-widget {
+    position: static;
+    margin: 1rem auto 2rem;
+    width: 90%;
+    max-width: 300px;
   }
 }
 
@@ -231,13 +346,4 @@
 .location {
   font-size: 0.8rem;
   color: #9ca3af;
-}
-
-@media (max-width: 768px) {
-  .weather-widget {
-    position: static;
-    margin: 1rem auto 2rem;
-    width: 90%;
-    max-width: 300px;
-  }
 }
