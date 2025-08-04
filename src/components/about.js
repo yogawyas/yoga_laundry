@@ -50,12 +50,41 @@ const About = () => {
     },
     {
       id: 4,
-      name: "Reza Rizky Pratamassssssssss",
+      name: "Reza Rizky Pratama",
       role: "Senior Laundry Specialist",
       image: "/rezarizky.jpg",
       description: "Spesialis dalam perawatan pakaian premium."
     }
   ];
+
+  const sendWablasNotif = async () => {
+    const token = "YOUR_WABLAS_TOKEN"; // Ganti dengan token Wablas kamu
+    const phone = "6281234567890";     // Ganti dengan nomor tujuan (format internasional)
+    const message = "Terima kasih telah mengunjungi halaman About Yoga Laundry!";
+
+    try {
+      const response = await fetch("https://console.wablas.com/api/send-message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": token
+        },
+        body: JSON.stringify({
+          phone,
+          message
+        })
+      });
+
+      const data = await response.json();
+      if (data.status) {
+        alert("Notifikasi WhatsApp berhasil dikirim!");
+      } else {
+        alert("Gagal mengirim notifikasi.");
+      }
+    } catch (error) {
+      alert("Terjadi kesalahan saat mengirim notifikasi.");
+    }
+  };
 
   return (
     <div className="about-container">

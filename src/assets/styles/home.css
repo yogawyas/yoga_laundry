@@ -156,11 +156,14 @@
 /* Reminder Widget */
 .reminder-container {
   position: fixed;
-  top: 6rem;
-  left: 2rem;
+  top: 6rem;    /* Ubah dari 1rem ke 6rem agar lebih turun */
+  left: 2rem;   /* Kembalikan ke 2rem agar konsisten dengan desktop */
   right: auto;
   bottom: auto;
-  z-index: 200;
+  margin: 0;
+  z-index: 300;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .reminder-btn {
@@ -276,17 +279,24 @@
   }
 
   .reminder-container {
-    position: static;
-    margin: 1rem auto 0;
-    display: flex;
-    justify-content: center;
+    top: 4.5rem;   /* Turunkan juga pada mobile, misal 4.5rem */
+    left: 1rem;
+  }
+
+  .reminder-btn {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    border-radius: 40px;
   }
 
   .reminder-dropdown {
-    right: 0;
-    left: auto;
+    left: 0;
+    right: auto;
+    min-width: 220px;
+    max-width: 90vw;
     top: calc(100% + 8px);
-    bottom: auto;
+    margin-right: 0;
+    margin-left: 0;
   }
 
   .weather-widget {
