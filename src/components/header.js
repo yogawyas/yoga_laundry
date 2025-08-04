@@ -42,7 +42,7 @@ const Header = () => {
       </button>
 
       <nav className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-        <Link to="/" className="nav-link" onClick={closeMenu}>Home</Link>
+        <Link to="/" className="nav-link" onClick={closeMenu}>Home </Link>
         <Link to="/about" className="nav-link" onClick={closeMenu}>About</Link>
         <Link to="/services" className="nav-link" onClick={closeMenu}>Services</Link>
         <Link to="/membership" className="nav-link" onClick={closeMenu}>Membership</Link>

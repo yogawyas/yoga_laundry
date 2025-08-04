@@ -177,7 +177,7 @@ const Home = () => {
                 className="progress-bar-fg"
                 style={{
                   width: `${progressPercent}%`,
-                  background: progressPercent > 50 ? "#3b82f6" : progressPercent > 20 ? "#fbbf24" : "#ef4444"
+                  background: progressPercent > 50 ? "#00f472ff" : progressPercent > 20 ? "#fbbf24" : "#ef4444"
                 }}
               ></div>
             </div>
